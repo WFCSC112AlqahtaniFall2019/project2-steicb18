@@ -8,36 +8,6 @@ void mergeSort(vector<int>& a, vector<int>& tmp, int left, int right);
 void mergeSortedLists(vector<int>& a, vector<int>& tmp, int left, int middle, int right);
 
 int main() {
-    vector<int> test = {3,1,6,4,2,5,7};
-    vector<int> testT(7);
-    vector<int> expect = {1,2,3,4,5,6,7};
-
-    /*test.at(0) = 3;
-    test.at(1) = 1;
-    test.at(2) = 6;
-    test.at(3) = 4;
-    test.at(4) = 2;
-    test.at(5) = 5;
-    test.at(6) = 7;
-
-    expect.at(0) = 1;
-    expect.at(1) = 2;
-    expect.at(2) = 3;
-    expect.at(3) = 4;
-    expect.at(4) = 5;
-    expect.at(5) = 6;
-    expect.at(6) = 7;*/
-
-    cout<< "Testing started" <<endl;
-
-    cout<< "Expecting : 1   2   3   4   5   6   7, got:   ";
-    mergeSort(test, testT, 0, test.size()-1);
-    for (int i = 0; i < test.size(); i++)
-    {
-        cout << test.at(i) <<"   ";
-    }
-    cout << endl<<"Testing Complete."<<endl;
-
 
     // get input: first is random seed, second is vector length
    int seed, length;
@@ -47,8 +17,15 @@ int main() {
 
     vector<int> v(length);  // vector to be sorted
     vector<int> t(length);  // temporary workspace
-    vector<int> x(length);
 
+    //mergeSortedLists test setup
+    vector<int> test = {4, 8, 5, 7, 6, 3, 1, 9, 2, 0};
+    vector<int> testT(10);
+    mergeSortedLists(test, testT, 0, 5, 9);
+    //mergeSortedLists test
+    for(int i = 1; i < v.size(); i++) {
+        assert(v.at(i - 1) <= v.at(i));
+    }
 
     // initialize and print input
     for (int i = 0; i < v.size(); i++) {
